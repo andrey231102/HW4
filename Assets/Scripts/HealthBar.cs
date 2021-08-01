@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
+    [SerializeField] private float _smoothness;
 
     private float _currentHealth;
     private Slider _slider;
@@ -21,11 +22,18 @@ public class HealthBar : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
+    private void Update()
+    {
+        if (_slider.value != _currentHealth)
+        {
+            _slider.value = Mathf.Lerp(_slider.value, _currentHealth, _smoothness * Time.deltaTime);
+        }
+    }
+
     public void ChangeHealth(float health)
     {
-        _slider.value = health;
         _currentHealth = health;
-
+        
         if (health<0)
         {
             _currentHealth = 0;
