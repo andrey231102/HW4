@@ -5,11 +5,11 @@ using UnityEngine;
 public class DamageDealer : MonoBehaviour
 {
     [SerializeField] private float _amountOfDamage;
-    [SerializeField]private HealthBar _healthBar;
+    [SerializeField] private Player _player;
 
     public void DoDamage()
     {
-        float currentHealth = _healthBar.CurrentHealth - _amountOfDamage;
-        _healthBar.ChangeHealth(currentHealth);
+        float currentHealth = _player.CurrentHealth - _amountOfDamage;
+        _player.ChangeHealth(currentHealth);
     }
 }

@@ -6,33 +6,26 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth;
+    [SerializeField] private float _smoothness;
+    [SerializeField] private Player _player;
 
-    private float _currentHealth;
     private Slider _slider;
 
-    public float CurrentHealth => _currentHealth;
-
-    private void Start()
+    private void Update()
     {
-        _slider = GetComponent<Slider>();
-        _slider.maxValue = _maxHealth;
-        _slider.value = _maxHealth;
-        _currentHealth = _maxHealth;
+        if (_slider.value != _player.CurrentHealth)
+            _slider.value = Mathf.Lerp(_slider.value, _player.CurrentHealth, _smoothness * Time.deltaTime);
     }
 
-    public void ChangeHealth(float health)
+    public void SetMaxHealth(float health)
+    {
+        _slider = GetComponent<Slider>();
+        _slider.maxValue = health;
+        _slider.value = health;
+    }
+
+    public void SetHealth(float health)
     {
         _slider.value = health;
-        _currentHealth = health;
-
-        if (health<0)
-        {
-            _currentHealth = 0;
-        }
-        else if (health>_slider.maxValue)
-        {
-            _currentHealth = _slider.maxValue;
-        }
     }
 }
