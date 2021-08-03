@@ -21,6 +21,7 @@ public class HealthBar : MonoBehaviour
         SetHealth(_player.CurrentHealth);
     }
 
+<<<<<<< HEAD
     private void SetMaxHealth(float maxHealth)
     {
         _slider = GetComponent<Slider>();
@@ -32,5 +33,10 @@ public class HealthBar : MonoBehaviour
     {
         if (_slider.value != currentHealth)        
             _slider.value = Mathf.MoveTowards(_slider.value, currentHealth, _smoothness * Time.deltaTime);       
+=======
+    public void SetHealth(float health)
+    {
+        _slider.value = health;
+>>>>>>> 8ab626e2de4e851342914d2b44d4c3b905c44c44
     }
 }
