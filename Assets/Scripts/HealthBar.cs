@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private float _smoothness;
     [SerializeField] private Player _player;
 
     private Slider _slider;
@@ -16,27 +16,12 @@ public class HealthBar : MonoBehaviour
         SetMaxHealth(_player.MaxHealth);
     }
 
-    private void Update()
-    {
-        SetHealth(_player.CurrentHealth);
-    }
-
-<<<<<<< HEAD
     private void SetMaxHealth(float maxHealth)
     {
         _slider = GetComponent<Slider>();
         _slider.maxValue = maxHealth;
         _slider.value = maxHealth;
     }
-
-    private void SetHealth(float currentHealth)
-    {
-        if (_slider.value != currentHealth)        
-            _slider.value = Mathf.MoveTowards(_slider.value, currentHealth, _smoothness * Time.deltaTime);       
-=======
-    public void SetHealth(float health)
-    {
-        _slider.value = health;
->>>>>>> 8ab626e2de4e851342914d2b44d4c3b905c44c44
-    }
 }
+
+

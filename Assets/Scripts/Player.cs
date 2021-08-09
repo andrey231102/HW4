@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {    
     [SerializeField] private float _maxHealth;
+    [SerializeField] private UnityEvent _changed;
 
     private float _currentHealth;
 
@@ -28,5 +30,7 @@ public class Player : MonoBehaviour
         {
             _currentHealth = _maxHealth;
         }
+
+        _changed?.Invoke();
     }
 }
