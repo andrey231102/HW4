@@ -23,6 +23,20 @@ public class HealthBar : MonoBehaviour
         _slider.maxValue = maxHealth;
         _slider.value = maxHealth;
     }
+
+    private IEnumerator ChangeHealthBarValue()
+    {
+        while (_slider.value != _player.CurrentHealth)
+        {
+            _slider.value = Mathf.MoveTowards(_slider.value, _player.CurrentHealth, _smoothness * Time.deltaTime);
+            yield return null;
+        }
+    }
+
+    public void Change()
+    {
+        StartCoroutine(ChangeHealthBarValue());
+    }
 }
 
 

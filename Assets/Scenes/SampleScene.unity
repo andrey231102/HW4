@@ -376,7 +376,6 @@ GameObject:
   m_Component:
   - component: {fileID: 366371875}
   - component: {fileID: 366371874}
-  - component: {fileID: 366371876}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -400,7 +399,7 @@ MonoBehaviour:
   _changed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 366371876}
+      - m_Target: {fileID: 1537402932}
         m_MethodName: Change
         m_Mode: 1
         m_Arguments:
@@ -425,20 +424,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &366371876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 366371873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da7bdd20669f94944a6422c8b6ae4fe8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthBar: {fileID: 1537402931}
-  _smoothness: 5
 --- !u!1 &466442797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,7 +999,6 @@ GameObject:
   - component: {fileID: 1537402930}
   - component: {fileID: 1537402931}
   - component: {fileID: 1537402932}
-  - component: {fileID: 1537402933}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1107,21 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 366371874}
-  _smoothness: 0
---- !u!114 &1537402933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1537402929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da7bdd20669f94944a6422c8b6ae4fe8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthBar: {fileID: 0}
-  _smoothness: 0
+  _smoothness: 5
 --- !u!1 &1800385493
 GameObject:
   m_ObjectHideFlags: 0
