@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,3 +24,5 @@ public class HealthBar : MonoBehaviour
         _slider.value = maxHealth;
     }
 }
+
+

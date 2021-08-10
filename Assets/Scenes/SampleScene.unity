@@ -1107,6 +1107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 366371874}
+  _smoothness: 0
 --- !u!114 &1537402933
 MonoBehaviour:
   m_ObjectHideFlags: 0
