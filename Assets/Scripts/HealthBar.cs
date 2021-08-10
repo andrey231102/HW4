@@ -24,7 +24,7 @@ public class HealthBar : MonoBehaviour
         _slider.value = maxHealth;
     }
 
-    private IEnumerator ChangeHealthBarValue()
+    private IEnumerator SetCurrentHealth()
     {
         while (_slider.value != _player.CurrentHealth)
         {
@@ -33,9 +33,9 @@ public class HealthBar : MonoBehaviour
         }
     }
 
-    public void Change()
+    public void ChangeValue()
     {
-        StartCoroutine(ChangeHealthBarValue());
+        StartCoroutine(SetCurrentHealth());
     }
 }
 
