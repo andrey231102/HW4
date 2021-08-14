@@ -6,12 +6,14 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {    
     [SerializeField] private float _maxHealth;
-    [SerializeField] private UnityEvent _changed;
 
     private float _currentHealth;
 
     public float CurrentHealth => _currentHealth;
     public float MaxHealth => _maxHealth;
+
+    public delegate void Event();
+    public event Event Changed;
 
     private void Start()
     {
@@ -31,6 +33,6 @@ public class Player : MonoBehaviour
             _currentHealth = _maxHealth;
         }
 
-        _changed?.Invoke();
+        Changed?.Invoke();
     }
 }

@@ -15,6 +15,7 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         SetMaxHealth(_player.MaxHealth);
+        _player.Changed += OnChanged;
     }
 
     private void SetMaxHealth(float maxHealth)
@@ -24,18 +25,18 @@ public class HealthBar : MonoBehaviour
         _slider.value = maxHealth;
     }
 
-    private IEnumerator SetCurrentHealth()
+    private void OnChanged()
+    {
+        StartCoroutine(TransmitCurrentHealth());
+    }
+
+    private IEnumerator TransmitCurrentHealth()
     {
         while (_slider.value != _player.CurrentHealth)
         {
             _slider.value = Mathf.MoveTowards(_slider.value, _player.CurrentHealth, _smoothness * Time.deltaTime);
             yield return null;
         }
-    }
-
-    public void ChangeValue()
-    {
-        StartCoroutine(SetCurrentHealth());
     }
 }
 
