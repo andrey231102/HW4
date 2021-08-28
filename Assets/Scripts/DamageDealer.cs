@@ -9,7 +9,6 @@ public class DamageDealer : MonoBehaviour
 
     public void DoDamage()
     {
-        float currentHealth = _player.CurrentHealth - _amountOfDamage;
-        _player.TakeDamage(currentHealth);
+        _player.TakeDamage(_amountOfDamage);
     }
 }

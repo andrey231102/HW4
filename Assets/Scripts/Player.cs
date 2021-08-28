@@ -19,22 +19,22 @@ public class Player : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
-    public void TakeDamage(float health)
+    public void TakeDamage(float amountOfDamage)
     {
-        _currentHealth = health;
+        _currentHealth -= amountOfDamage;
 
-        if (health < 0)
+        if (_currentHealth < 0)
         {
             _currentHealth = 0;
         }
         HealthChanged?.Invoke(_currentHealth);
     }
 
-    public void RecoverHealth(float health)
+    public void RecoverHealth(float amountOfHealing)
     {
-        _currentHealth = health;
+        _currentHealth += amountOfHealing;
 
-        if (health > _maxHealth)
+        if (_currentHealth > _maxHealth)
         {
             _currentHealth = _maxHealth;
         }
