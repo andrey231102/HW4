@@ -10,12 +10,13 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private float _smoothness;
 
+    private IEnumerator _coroutine;
+
     private Slider _slider;
 
     private void Start()
     {
         SetMaxHealth(_player.MaxHealth);
-
         _player.HealthChanged += OnChanged;
     }
 
@@ -28,11 +29,19 @@ public class HealthBar : MonoBehaviour
 
     private void OnChanged(float healthValue)
     {
+<<<<<<< Updated upstream
         var healthChangeCoroutine = TransmitCurrentHealth(healthValue);
 
         StopAllCoroutines();
         // StopCoroutine(healthChangeCoroutine);
         StartCoroutine(healthChangeCoroutine);
+=======
+        if (_coroutine!= null)
+            StopCoroutine(_coroutine);
+
+        _coroutine = TransmitCurrentHealth(healthValue);
+        StartCoroutine(_coroutine);
+>>>>>>> Stashed changes
     }
 
     private IEnumerator TransmitCurrentHealth(float currentHealthValue)

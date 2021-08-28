@@ -10,6 +10,6 @@ public class HealthRecover : MonoBehaviour
     public void RecoverHealth()
     {
         float currentHealth = _player.CurrentHealth + _amountOfHealing;
-        _player.ChangeHealth(currentHealth);
+        _player.RecoverHealth(currentHealth);
     }
 }
