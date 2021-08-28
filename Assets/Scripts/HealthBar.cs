@@ -26,13 +26,13 @@ public class HealthBar : MonoBehaviour
         _slider.value = maxHealth;
     }
 
-    private void OnChanged(float s)
+    private void OnChanged(float healthValue)
     {
-        var a = TransmitCurrentHealth(s);
+        var healthChangeCoroutine = TransmitCurrentHealth(healthValue);
 
-        //StopAllCoroutines();
-        StopCoroutine(a);
-        StartCoroutine(a);
+        StopAllCoroutines();
+        // StopCoroutine(healthChangeCoroutine);
+        StartCoroutine(healthChangeCoroutine);
     }
 
     private IEnumerator TransmitCurrentHealth(float currentHealthValue)
