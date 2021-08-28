@@ -12,8 +12,7 @@ public class Player : MonoBehaviour
     public float CurrentHealth => _currentHealth;
     public float MaxHealth => _maxHealth;
 
-    public delegate void Event();
-    public event Event Changed;
+    public event UnityAction<float> HealthChanged;
 
     private void Start()
     {
@@ -33,6 +32,6 @@ public class Player : MonoBehaviour
             _currentHealth = _maxHealth;
         }
 
-        Changed?.Invoke();
+        HealthChanged?.Invoke(_currentHealth);
     }
 }
