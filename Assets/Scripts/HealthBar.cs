@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -29,19 +29,11 @@ public class HealthBar : MonoBehaviour
 
     private void OnChanged(float healthValue)
     {
-<<<<<<< Updated upstream
-        var healthChangeCoroutine = TransmitCurrentHealth(healthValue);
-
-        StopAllCoroutines();
-        // StopCoroutine(healthChangeCoroutine);
-        StartCoroutine(healthChangeCoroutine);
-=======
         if (_coroutine!= null)
             StopCoroutine(_coroutine);
 
         _coroutine = TransmitCurrentHealth(healthValue);
         StartCoroutine(_coroutine);
->>>>>>> Stashed changes
     }
 
     private IEnumerator TransmitCurrentHealth(float currentHealthValue)
