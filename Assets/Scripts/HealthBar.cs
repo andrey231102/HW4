@@ -11,7 +11,6 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private float _smoothness;
 
     private IEnumerator _coroutine;
-
     private Slider _slider;
 
     private void Start()
